@@ -7,9 +7,10 @@ data "terraform_remote_state" "random_pet" {
       name = "random_pet"
     }
   }
+}
 
-  resource "null_reseource" {
+  resource "null_resource" "example" {
       provisioner "local-exec" {
-          command= "echo data.terraform_remote_state.random_pet.output.pet_name"
+          command="echo ${data.terraform_remote_state.random_pet.outputs.pet_name}"
       }
-  } 
+  }
