@@ -14,3 +14,9 @@ data "terraform_remote_state" "random_pet" {
           command="echo ${data.terraform_remote_state.random_pet.outputs.pet_name}"
       }
   }
+
+resource "null_resource" "example2" {
+      provisioner "local-exec" {
+          command="az --version"
+      }
+  }
